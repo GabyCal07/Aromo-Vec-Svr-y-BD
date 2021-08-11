@@ -1,5 +1,8 @@
 const express = require('express');
 const path = require('path');
+const cards = require('./utils/cards');
+const port = process.env.PORT || 3000;
+const title = 'Aromo-vecinos';
 
 const app = express();
 
@@ -8,28 +11,44 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-app.get('', (req, res) => {
-    res.render('index', {
-        title: 'Aromo-vecinos',
-        page: 'inicio'
+app.get('', (req, res)=>{
+    cards.getAllCards((error, data) => {
+        
+        if (error) {
+            //return res.send({ error });
+            return res.send(error);
+        }
+        const JSONBody = JSON.parse(data);        
+        return res.render('index', {
+            title,
+            page: 'inicio',
+            JSONBody
+        });
     });
 });
 
+// app.get('', (req, res) => {
+//     res.render('index', {
+//         title: 'Aromo-vecinos',
+//         page: 'inicio',
+//         cards
+//     });
+// });
+
 app.get('/mantenimiento', (req, res) => {
     res.render('pages/mantenimiento',{
-        title: 'Aromo-vecinos | Mantenimiento',
-        page: 'mantenimiento'
+        title: `${title} | Mantenimiento`,        
+        page: 'mantenimiento'        
     });
 });
 
 app.get('/salud', (req, res) => {
     res.render('pages/salud',{
-        title: 'Aromo-vecinos | Salud',
+        title: `${title} | Salud`,        
         page: 'salud'
     });
 });
 
-app.listen(3000, () => {
-    console.log("Funcionando en el puerto 3000");
+app.listen(port, ()=>{
+    console.log(`Funcionando en el puerto ${port}`);
 });

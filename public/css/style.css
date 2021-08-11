@@ -106,8 +106,8 @@ body {
 }
 
 .card-btn-style, .clasif-btn-style{
-    padding: 0px 30px 5px;
-    border-radius: 10px;
+    padding: 0px 30px;/* 5px;
+    /* border-radius: 10px; */
     font-size: 16px;    
     cursor: pointer;       
  }   
