@@ -28,8 +28,9 @@
 const request = require('postman-request');
 
 const getAllCards = (callback) => {
-    request('http://localhost:3001/grupos', (error, res, body) => {
-//    request('https://origen-api-1.herokuapp.com/dishes', (error, res, body) => {
+    //request('http://localhost:3001/grupos', (error, res, body) => {
+        
+    request('https://aromo-api.herokuapp.com/grupos', (error, res, body) => {
  
     if (error) {
         callback(error, undefined);
