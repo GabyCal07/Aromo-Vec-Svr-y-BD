@@ -1,2 +1,2 @@
-# Aromo-Vec-Svr-y-BD
-Aromo con estructura de server y uso de BD
+# Aromo-Website
+Web con paginas dinamicas y uso de bd

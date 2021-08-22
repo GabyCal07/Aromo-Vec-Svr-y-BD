@@ -10,59 +10,52 @@
 <header>
     <%- include('./partials/navbar') %>
  
-     <div class="hero py-5">
-
-            <div class="container">
-                
-                <div class="row align-items-center imgText-container">
-                    <div class="col hero-align-container">
-                        <div class="hero-left-container">
-                            <h1 class="mb-4">¿Qué necesitás?</h1>  
-                               
-                            <p> La canilla pierde agua ... <br>
-                                Tu perro se rasca ...  <br>
-                                 No tenes ganas de cocinar ... </p>
-                            <p class="fst-italic fs-4">No desesperes!</p>
-                            <p>Acá vas a encontrar información útil y contactos recomendados por tus vecinos que te pueden ayudar.</p>
-                                      
-                        </div>              
-                    </div>
-                    <div class="col text-center">                        
-                        <img class="hero-image" src="img/hombre-preocupado.jpg" alt="Imágen hombre preocupado">
-                        <img class="hero-image" src="img/mujer-preocupada.jpg" alt="Imágen mujer preocupada">
-                    </div>
-                
+    <div class="hero ">
+        <div class="container">             
+            <div class="row d-flex align-items-center">
+                <div class="col-xl-6 col-md-6 col-sm-12 text-center hero-align-container">
+                    <div class="me-3">
+                        <h1 class="mb-4">¿Qué necesitás?</h1>                          
+                        <p class="fs-6"> La canilla pierde agua ... <br>
+                            Tu perro se rasca ...  <br>
+                            No tenes ganas de cocinar ... 
+                        </p>
+                        <p class="fst-italic fs-4">No desesperes!</p>
+                        <p class="fs-6">Acá vas a encontrar información útil y contactos recomendados por tus vecinos que te pueden ayudar.</p>                        
+                    </div>                        
                 </div>
-            </div>
-        </div>
+                <div class="col-xl-6 col-md-6 col-sm-12 text-center ">                        
+                    <img class="hero-image" src="img/pareja-pensando.jpg" alt="pareja-pensando">                        
+                </div>
+            </div>            
+        </div>        
+        <div class="hero-row bg-dark"></div>        
+    </div>
+
 </header>
 
-<main class="bg-gray py-4">
+<main class="bg-light-gray py-4">
     <div class="main-container">
     
         <div class="container">
             <div class="row">
               
-              <h2 class="section-title text-center"> <img class="section-icon" src="/img/search2.png" alt="Icono Buscar">
+              <h2 class="section-title text-center"> <img class="section-icon pulse" src="/img/search.png" alt="Icono Buscar">
                 Fijate si encontrás lo que estás buscando ... 
               </h2>            
      
                 
-                <% JSONBody.forEach(card =>{ %>                    
+                <% JSONBody.forEach(grupo =>{ %>                    
                 <div class="col-xl-3 col-md-6 col-sm-12">
                     <div class="card my-3">
-                        <div class="card-body card-style">
-                            <!-- <img class="card-image" src="img/multiservicios.jpg" alt="Imágen Multiservicios"/> -->
-                            <img class="card-image" src="<%= card.img %>" alt="<%= card.name %>"/>
-                            <hr class="hr-line">
-                            <!-- <h5 class="card-title card-title-style">Cuidado de tu casa</h5> -->
-                            <h5 class="card-title card-title-style"><%= card.name %></h5>
-                            <p class="card-text section-text">
-                                <!-- Pintores, albañiles, electricistas, plomeros, calderas, jardineros y más...</p> -->
-                                <%= card.description %></p>
-                            <!-- <a href="/mantenimiento" class="card-link">Ver más <i class="bi bi-arrow-right bi-arrow-style"></i></a>        -->
-                            <a href="/<%= card.page %>" class="card-link">Ver <i class="bi bi-arrow-right bi-arrow-style"></i></a>       
+                        <div class="card-body card-style">                            
+                            <img class="card-image" src="<%= grupo.img %>" alt="<%= grupo.name %>"/>
                             
+                            <hr class="hr-line">
+                            
+                            <h5 class="card-title card-title-style"><%= grupo.name %></h5>
+                            <p class="card-text section-text"><%= grupo.description %></p>                            
+                            <a href="/<%= grupo.page %>" class="card-link">Ver <i class="bi bi-arrow-right bi-arrow-style"></i></a>                                                               
                         </div>
                     </div>    
                 </div>
@@ -78,7 +71,7 @@
         <div class="row align-items-center">
             <div class="col-md-6 col-sm-12 d-flex justify-content-center"> 
                 <div class="image-container">
-                    <img class="clasif-image pulse" src="img/clasificados.jpg" alt="Imágen Clasificados">
+                    <img class="clasif-image pulse" src="img/clasificados.jpg" alt="Clasificados">
                 </div>
             </div>
             <div class="col-md-6 col-sm-12">
@@ -86,18 +79,18 @@
                     <h2 class="section-title">
                         ¡Y también podés vender y comprar!
                     </h2>
-                    <p class="section-text">
+                    <p class="section-text fs-5">
                         Mostrá lo que querés vender y mirá lo que ofrecen tus vecinos.
                     </p>
-                    <!-- <a href="#" class="btn btn-outline-secondary clasif-btn-style">Ver...</a>                 -->
-                    <a href="/clasificados" class="card-link">Ver ... <i class="bi bi-arrow-right bi-arrow-style"></i></a>    
+                    
+                    <a href="/" class="card-link">Ver ... <i class="bi bi-arrow-right bi-arrow-style"></i></a>    
                 </div>
             </div>
         </div>        
     </div>
 </section>
 
-<section class="bg-dark-gray my-5 py-5">
+<section class="bg-gray my-5 py-5">
     <div class="container">
         <div class="row imgText-container">
             <div class="col-md-6 col-sm-12 d-flex align-items-center share-info-container">
@@ -109,7 +102,7 @@
             </div>
             <div class="col-md-6 col-sm-12 d-flex justify-content-center">
                 <div class="image-container">
-                    <img class="share-image" src="img/compartir.jpg" alt="Imágen Compartir info">
+                    <img class="share-image" src="img/compartir.jpg" alt="Compartir info">
                 </div>
             </div>
         </div>       
