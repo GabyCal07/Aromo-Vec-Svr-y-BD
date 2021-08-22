@@ -30,26 +30,7 @@ app.get('', (req, res)=>{
     });
 });
 
-
-
-// app.get('/mantenimiento', (req, res) => {
-//     categorias.getAllCategorias((error, data) => {
-        
-//         if (error) {            
-//             return res.send(error);
-//         }
-//         const JSONBody = JSON.parse(data);        
-//         res.render('pages/mantenimiento',{
-//             title: `${title} | Mantenimiento`,                        
-//             page: 'mantenimiento',
-//             JSONBody
-//         });
-//     });
-// });
-
-//app.get('/mantenimiento/:grupo', (req, res) => {
 app.get('/mantenimiento', (req, res) => {
-    //const grupo = req.params.grupo;
     const grupo = "mantenimiento";
     categorias.getCategoriasByGrupo(grupo, (error, data) => {
         
@@ -57,7 +38,6 @@ app.get('/mantenimiento', (req, res) => {
             return res.send(error);
         }
         const JSONBody = JSON.parse(data);        
-        // res.render('pages/mantenimiento',{
         res.render('pages/categorias',{
             title: `${title} | Mantenimiento`,                        
             page: grupo,
@@ -77,7 +57,6 @@ app.get('/salud', (req, res) => {
         }
         const JSONBody = JSON.parse(data);        
         res.render('pages/categorias',{
-        // res.render('pages/salud',{
             title: `${title} | Salud`,                        
             page: grupo,
             template,
@@ -119,22 +98,6 @@ app.get('/alimentos', (req, res) => {
         });
     });
 });
-
-// app.get('/salud/:categoria', (req, res) => {
-//     const cat = req.params.categoria;
-//     proveedores.getProvByCategory(cat, (error, data) => {
-        
-//         if (error) {            
-//             return res.send(error);
-//         }
-//         const JSONBody = JSON.parse(data);          
-//         res.render('pages/proveedores',{
-//             title: `${title} | Proveedores`,                        
-//             page: '',
-//             JSONBody
-//         });
-//     });
-// });
 
 app.get('/proveedores/:categoria', (req, res) => {
     const category = req.params.categoria;
